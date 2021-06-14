@@ -26,6 +26,10 @@ const generatePage = (name, github) => {
   `;
 };
 
+
+
+
+
 // const profileDataArgs = process.argv.slice(2);
 
 // const printProfileData = profileDataArr => {
