@@ -1,5 +1,12 @@
+
+//ASSIGNS THE ANONYMOUS HTML TEMPLATE FUNCT.
+const fs = require('fs');
+const generatePage = require('./src/page-template.js');
+// console.log(inquirer)
+
 const inquirer = require('inquirer');
 
+// 1ST FUNCTION //
 const promptUser = () => {
   return inquirer.prompt([
     {
@@ -162,27 +169,16 @@ Add a New Project
 promptUser()
   .then(promptProject)
   .then(portfolioData => {
-    console.log(portfolioData);
+    const pageHTML = generatePage(portfolioData);
+
+    fs.writeFile('./index.html', pageHTML, err => {
+      if (err) throw new Error(err);
+
+      console.log('Page created! Check out index.html in this directory to see it!');
+    });
   });
 
 
-// const fs = require('fs');
-// const generatePage = require('./src/page-template');
-// console.log(inquirer)
-
-// const fs = require('fs');
-// const generatePage = require('./src/page-template');
-
-// const pageHTML = generatePage(name, github);
-
-// fs.writeFile('./index.html', pageHTML, err => {
-//   if (err) throw err;
-
-//   console.log('Portfolio complete! Check out index.html to see the output!');
-// });
-
-// const fs = require('fs');
-// const generatePage = require('./src/page-template');
 
 // const profileDataArgs = process.argv.slice(2);
 
@@ -234,20 +230,9 @@ promptUser()
 //     `;
 //   };
 
-
-
-
-
-
 // const generatePage = (userName, githubName) => `Name: ${userName}, Github: ${githubName}`;
 
 // console.log(generatePage('Jane', 'janehub'));
-
-
-
-
-
-
 
 // var message = 'Hello Node!';
 
@@ -290,11 +275,7 @@ promptUser()
 // personObj.age = 100;
 // personObj.occupation = 'Developer';
 
-
-
-
 ///////////////    9.1.6 LESSON   //////////////
-
 
 // Using function expression syntax NORMAL JS SYNTAX
 // const addNums = function(numOne, numTwo) {
@@ -405,7 +386,7 @@ promptUser()
 
 //     console.log('================');
 
-//     // NEWER TYPE OF METHOD: Is the same as this... 
+//     // NEWER TYPE OF METHOD for iteration: Is the same as this... 
 //     profileDataArr.forEach(profileItem => console.log(profileItem));
 
 // }
