@@ -1,8 +1,8 @@
-
 //ASSIGNS THE ANONYMOUS HTML TEMPLATE FUNCT.
-const fs = require('fs');
 const generatePage = require('./src/page-template.js');
 // console.log(inquirer)
+
+const fs = require('fs');
 
 const inquirer = require('inquirer');
 
@@ -166,30 +166,53 @@ Add a New Project
     });
 };
 
+// REVIEW
+// promptUser()
+//   .then(promptProject)
+//   .then(portfolioData => {
+//     return generatePage(portfolioData);
+//   })
+//   .then(pageHTML => {
+//     return writeFile(pageHTML);
+//   })
+//   .then(writeFileResponse => {
+//     console.log(writeFileResponse);
+//     return copyFile();
+//   })
+//   .then(copyFileResponse => {
+//     console.log(copyFileResponse);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
+
 promptUser()
   .then(promptProject)
   .then(portfolioData => {
     const pageHTML = generatePage(portfolioData);
 
 
-    // THIS FUNCTION WILL WRITE AN HTML
-    // fs.writeFile('./dist/index.html', pageHTML, err => {
-    //   if (err) {
-    //     console.log(err);
-    //     return;
-    //   }
-    //   console.log('Page created! Check out index.html in this directory to see it!');
-    
-    //   fs.copyFile('./src/style.css', './dist/style.css', err => {
-    //     if (err) {
-    //       console.log(err);
-    //       return;
-    //     }
-    //     console.log('Style sheet copied successfully!');
-    //   });
-    // });
+   
+//  THIS FUNCTION WILL CREATE A COPY OF THE HTML AND STYLE.
+//  fs.writeFile('./src/dist/index.html', pageHTML, err => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
+//   console.log('Page created! Check out index.html in this directory to see it!');
+
+//   fs.copyFile('./src/style.css', './src/dist/style.css', err => {
+//     if (err) {
+//       console.log(err);
+//       return;
+//     }
+//     console.log('Style sheet copied successfully!');
+//   });
+// });
 
 
+
+// THIS FUNCTION CHANGES THE ROOT INDEX
     fs.writeFile('./index.html', pageHTML, err => {
       if (err) throw new Error(err);
 
@@ -407,5 +430,3 @@ promptUser()
 
 //     // NEWER TYPE OF METHOD for iteration: Is the same as this... 
 //     profileDataArr.forEach(profileItem => console.log(profileItem));
-
-// }
