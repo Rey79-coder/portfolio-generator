@@ -194,31 +194,31 @@ promptUser()
 
    
 //  THIS FUNCTION WILL CREATE A COPY OF THE HTML AND STYLE.
-//  fs.writeFile('./src/dist/index.html', pageHTML, err => {
-//   if (err) {
-//     console.log(err);
-//     return;
-//   }
-//   console.log('Page created! Check out index.html in this directory to see it!');
+ fs.writeFile('./src/dist/index.html', pageHTML, err => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log('Page created! Check out index.html in this directory to see it!');
 
-//   fs.copyFile('./src/style.css', './src/dist/style.css', err => {
-//     if (err) {
-//       console.log(err);
-//       return;
-//     }
-//     console.log('Style sheet copied successfully!');
-//   });
-// });
+  fs.copyFile('./src/style.css', './src/dist/style.css', err => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log('Style sheet copied successfully!');
+  });
+});
 
 
 
 // THIS FUNCTION CHANGES THE ROOT INDEX
-    fs.writeFile('./index.html', pageHTML, err => {
-      if (err) throw new Error(err);
+  //   fs.writeFile('./index.html', pageHTML, err => {
+  //     if (err) throw new Error(err);
 
-      console.log('Page created! Check out index.html in this directory to see it!');
-    });
-  });
+  //     console.log('Page created! Check out index.html in this directory to see it!');
+  //   });
+  // });
 
 
 
@@ -429,4 +429,5 @@ promptUser()
 //     console.log('================');
 
 //     // NEWER TYPE OF METHOD for iteration: Is the same as this... 
-//     profileDataArr.forEach(profileItem => console.log(profileItem));
+//     profileDataArr.forEach(profileItem => console.log(profileItem))
+  })
